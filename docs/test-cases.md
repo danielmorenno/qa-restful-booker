@@ -178,6 +178,28 @@ A aplicação deve validar os dados conforme as regras definidas para cada campo
 - **Status:** Em investigação — execução parcial concluída.
 - **Observações:** os resultados registrados correspondem às tentativas realizadas. As regras de validação esperadas ainda precisam ser confirmadas antes da classificação definitiva de possíveis defeitos.
 
+**Investigação complementar — INV-001: Falha na criação da reserva**
+
+- **Contexto:** durante uma tentativa de reserva com primeiro nome e sobrenome compostos por números, a interface apresentou uma mensagem de falha de carregamento.
+- **Método HTTP:** `POST`
+- **Endpoint:** `/api/booking`
+- **Status HTTP:** `409 Conflict`
+- **Resposta da API:** `{"error":"Failed to create booking"}`
+- **Dados relevantes enviados:**
+  - `roomid`: `2`
+  - `firstname`: valor numérico
+  - `lastname`: valor numérico
+  - `depositpaid`: `false`
+  - `bookingdates.checkin`: `2026-10-20`
+  - `bookingdates.checkout`: `2026-10-21`
+  - `phone`: valor de 11 dígitos
+  - `email`: omitido deste registro por privacidade.
+- **Resultado observado:** a API não criou a reserva nessa tentativa e retornou o erro informado. A interface exibiu uma mensagem de falha.
+- **Reprodução:** o comportamento foi observado durante a investigação com nomes numéricos. Ainda não foi confirmado que esses valores sejam a causa.
+- **Evidências:** captura de tela da interface após a atualização e dados da requisição no Network, incluindo status HTTP, endpoint e resposta.
+- **Causa raiz:** não identificada.
+- **Status da investigação:** em andamento.
+- **Próxima ação:** comparar o comportamento com dados nominais válidos, mantendo as demais condições equivalentes, e verificar se o conflito pode estar relacionado à disponibilidade do quarto ou a outra regra da aplicação.
 
 ### TC-006 — Visualizar o formulário de contato
 
