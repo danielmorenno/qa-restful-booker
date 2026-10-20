@@ -76,7 +76,9 @@ Os casos começam com o status **Não executado**. O status somente deverá ser 
   2. Acessar a URL da aplicação.
   3. Aguardar o carregamento da página.
 - **Resultado esperado:** a página inicial é carregada e os elementos principais da interface ficam visíveis.
-- **Status:** Não executado.
+- **Resultado obtido:** a página inicial carregou e os elementos principais estavam visíveis. Nenhum erro ou comportamento inesperado foi observado durante a execução.
+- **Status:** Aprovado.
+- **Evidências:** nenhuma captura de tela registrada nesta execução.
 
 ### TC-002 — Visualizar quartos e preços
 
