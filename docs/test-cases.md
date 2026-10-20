@@ -108,7 +108,10 @@ Os casos começam com o status **Não executado**. O status somente deverá ser 
   2. Localizar um quarto ou a funcionalidade de reserva.
   3. Acionar a opção de reserva.
 - **Resultado esperado:** o formulário de reserva é apresentado e permite visualizar os campos disponíveis.
-- **Status:** Não executado.
+- **Resultado obtido:** conforme informado na execução manual, o teste ocorreu sem problemas.
+- **Status:** Aprovado.
+- **Evidências:** nenhuma captura de tela registrada nesta execução.
+
 
 ### TC-004 — Validar reserva com campos vazios
 
