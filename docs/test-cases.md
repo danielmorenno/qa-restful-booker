@@ -126,7 +126,9 @@ Os casos começam com o status **Não executado**. O status somente deverá ser 
   3. Tentar enviar o formulário, se a interface permitir.
   4. Observar as mensagens e o comportamento da interface.
 - **Resultado esperado:** a aplicação impede uma submissão inválida ou informa claramente quais campos obrigatórios precisam ser preenchidos.
-- **Status:** Não executado nesta etapa.
+- **Resultado obtido:** o envio foi impedido. A interface apresentou mensagens de alerta em vermelho indicando os campos vazios e informando que o preenchimento era obrigatório. Nenhum comportamento inesperado foi observado.
+- **Status:** Aprovado.
+- **Evidências:** nenhuma captura de tela registrada nesta execução.
 
 ### TC-005 — Validar dados inválidos na reserva
 
