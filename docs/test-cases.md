@@ -92,7 +92,9 @@ Os casos começam com o status **Não executado**. O status somente deverá ser 
   2. Localizar a seção de quartos.
   3. Observar as informações apresentadas.
 - **Resultado esperado:** os quartos disponíveis na interface apresentam suas informações e preços de forma legível.
-- **Status:** Não executado.
+- **Resultado obtido:** a seção de quartos foi localizada; os quartos e preços estavam visíveis e totalmente legíveis. Nenhum comportamento inesperado foi observado.
+- **Status:** Aprovado.
+- **Evidências:** nenhuma captura de tela registrada nesta execução.
 
 ### TC-003 — Abrir o formulário de reserva
 
