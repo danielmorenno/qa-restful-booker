@@ -136,18 +136,47 @@ Os casos começam com o status **Não executado**. O status somente deverá ser 
 - **Categoria:** Validação de formulário
 - **Origem:** EXP-006
 - **Pré-condições:** formulário de reserva acessível.
-- **Dados de entrada:** valores inválidos para um ou mais campos, selecionados conforme o tipo e as regras aparentes de cada campo.
-- **Passos:**
-  1. Acessar o formulário de reserva.
-  2. Identificar os campos disponíveis e os tipos de dados aceitos.
-  3. Selecionar um campo para investigação e registrar o valor inválido utilizado.
-  4. Preencher os demais campos com dados aparentemente válidos, quando necessário.
-  5. Tentar enviar o formulário, caso a interface permita.
-  6. Registrar as mensagens de validação, bloqueios e demais comportamentos observados.
-- **Resultado esperado:** a aplicação deve impedir ou sinalizar a submissão de dados que violem as regras de validação aplicáveis ao campo investigado.
-- **Evidências:** registrar o comportamento observado e, quando pertinente, capturar uma imagem da tela.
-- **Status:** Não executado — investigação específica pendente.
-- **Observações:** as regras de validação de cada campo precisam ser verificadas durante a execução; não presumir que um comportamento representa defeito antes de confirmar o resultado esperado.
+- **Objetivo:** investigar como a aplicação valida os campos do formulário quando são informados dados potencialmente inválidos.
+
+**Dados de entrada:**
+- Nome: `123`
+- E-mail: `email-invalido`
+- Telefone: `6521819181965198195`
+- Last Name: `191918111591`
+- Demais campos: preenchidos com dados considerados válidos durante as tentativas.
+
+**Passos:**
+1. Acessar o formulário de reserva.
+2. Preencher os campos obrigatórios com dados considerados válidos, exceto o campo selecionado para investigação.
+3. No campo de nome, informar `123` e enviar a reserva.
+4. Repetir o procedimento utilizando `email-invalido` no campo de e-mail.
+5. Repetir o procedimento utilizando `6521819181965198195` no campo de telefone.
+6. Repetir o procedimento utilizando `191918111591` no campo Last Name.
+7. Observar as respostas da aplicação, mensagens de validação, bloqueios e confirmações.
+8. Registrar os resultados observados e eventuais comportamentos inesperados.
+
+**Resultados observados:**
+
+- **Nome numérico (`123`):** a aplicação aceitou o valor e confirmou a reserva.
+- **E-mail inválido (`email-invalido`):** a aplicação bloqueou o envio, exibiu uma mensagem informando que o e-mail era inválido e destacou visualmente o campo.
+- **Telefone com 19 dígitos (`6521819181965198195`):** a aplicação aceitou o valor e confirmou a reserva.
+- **Last Name numérico (`191918111591`):** a aplicação aceitou o valor e confirmou a reserva.
+- **Erro após envio:** em uma tentativa envolvendo o campo Last Name, a página ficou completamente branca e exibiu um aviso de erro. Após atualizar a página, o conteúdo do quarto voltou a aparecer, mas o indicador de carregamento permaneceu ativo. O comportamento ocorreu novamente após a atualização. Em uma tentativa posterior com Last Name numérico, a reserva foi confirmada normalmente.
+
+**Resultado esperado:**
+
+A aplicação deve validar os dados conforme as regras definidas para cada campo, impedir o envio de valores inválidos e apresentar mensagens claras quando necessário. Após o envio, deve concluir o processamento da reserva ou informar adequadamente a ocorrência de um erro.
+
+**Análise inicial:**
+
+- A validação do e-mail funcionou conforme esperado para o valor utilizado.
+- Os campos de nome e Last Name aceitaram valores compostos apenas por números. É necessário confirmar as regras esperadas desses campos antes de classificar o comportamento como defeito.
+- O telefone aceitou um valor de 19 dígitos. É necessário confirmar o formato e o limite de caracteres previstos.
+- O erro de página e o carregamento incompleto precisam ser investigados separadamente, pois a causa não foi identificada e a reserva foi confirmada em uma tentativa posterior.
+
+- **Evidências:** captura de tela disponível do carregamento incompleto após a atualização. Não foi registrada captura do primeiro aviso de erro.
+- **Status:** Em investigação — execução parcial concluída.
+- **Observações:** os resultados registrados correspondem às tentativas realizadas. As regras de validação esperadas ainda precisam ser confirmadas antes da classificação definitiva de possíveis defeitos.
 
 
 ### TC-006 — Visualizar o formulário de contato
