@@ -201,6 +201,45 @@ A aplicação deve validar os dados conforme as regras definidas para cada campo
 - **Status da investigação:** em andamento.
 - **Próxima ação:** comparar o comportamento com dados nominais válidos, mantendo as demais condições equivalentes, e verificar se o conflito pode estar relacionado à disponibilidade do quarto ou a outra regra da aplicação.
 
+### INV-002 — Falha no carregamento dos dados dos quartos
+
+- **Origem:** Execução do TC-006 — Visualizar o formulário de contato.
+- **Categoria:** Disponibilidade / Carregamento de dados.
+- **Prioridade sugerida:** P1 — sujeita à confirmação do impacto.
+- **Ambiente:** https://automationintesting.online/
+- **Endpoint observado:** `/api/room/1`
+- **Método HTTP:** GET
+- **Status HTTP:** `500 Internal Server Error`
+
+**Contexto:**
+
+Durante a execução do TC-006, ao acessar o fluxo de reserva de um quarto, a aplicação deixou de carregar os dados e permaneceu em um ciclo de carregamento contínuo. O comportamento, que anteriormente não havia sido observado, também ocorreu em uma janela anônima do navegador.
+
+**Resultado observado:**
+
+- A requisição GET para `/api/room/1` retornou HTTP 500.
+- O corpo da resposta apresentou `Internal Server Error`.
+- O Console registrou o erro: `Unexpected token 'I', "Internal S"... is not valid JSON`.
+- A interface permaneceu em carregamento contínuo, sem concluir a navegação.
+- O comportamento foi observado também ao tentar acessar outros quartos.
+
+**Resultado esperado:**
+
+A aplicação deve carregar os dados dos quartos normalmente. Caso ocorra uma falha no servidor, deve apresentar uma mensagem compreensível ao usuário, sem permanecer em carregamento infinito.
+
+**Evidências:**
+
+- Captura do Network mostrando a resposta HTTP 500.
+- Corpo da resposta: `Internal Server Error`.
+- Mensagem de erro registrada no Console.
+- Captura da interface em carregamento contínuo.
+
+**Causa raiz:** Não identificada.
+
+**Status:** Investigação em andamento.
+
+**Observação:** Não foi possível determinar se a falha decorre de uma alteração recente na aplicação, instabilidade do servidor ou outro problema interno. A ocorrência foi observada durante a execução do TC-006 e deve ser investigada separadamente do objetivo principal desse caso de teste.
+
 ### TC-006 — Visualizar o formulário de contato
 
 - **Prioridade:** P2
@@ -213,7 +252,8 @@ A aplicação deve validar os dados conforme as regras definidas para cada campo
   2. Localizar a seção ou formulário de contato.
   3. Verificar os campos apresentados.
 - **Resultado esperado:** o formulário de contato é exibido e seus campos podem ser identificados.
-- **Status:** Não executado nesta etapa.
+- **Status:**
+
 
 ### TC-007 — Validar formulário de contato com dados ausentes ou inválidos
 
