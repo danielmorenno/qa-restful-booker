@@ -335,16 +335,29 @@ A ocorrência está documentada na investigação INV-002 — Falha no carregame
 - **Prioridade:** P1
 - **Categoria:** Autenticação negativa
 - **Origem:** EXP-010
-- **Pré-condições:** tela de login administrativo aberta.
-- **Dados de entrada:** credenciais inválidas de teste, sem utilizar dados pessoais ou senhas reais.
-- **Passos:**
-  1. Abrir a tela de login.
-  2. Inserir credenciais inválidas.
-  3. Enviar o formulário.
-  4. Observar o resultado da tentativa.
-- **Resultado esperado:** o acesso é negado e a interface apresenta um retorno adequado, sem autenticar o usuário.
-- **Status:** Não executado nesta etapa.
+- **Pré-condições:** Tela de login administrativo aberta.
+- **Dados de entrada:**
+  - Username: `usuario_teste_999`
+  - Password: senha fictícia inválida.
 
+**Passos:**
+1. Abrir a tela de login administrativo.
+2. Inserir credenciais inválidas.
+3. Enviar o formulário.
+4. Observar o resultado da tentativa.
+
+**Resultado esperado:**
+
+O acesso deve ser negado e a interface deve apresentar um retorno adequado, sem autenticar o usuário.
+
+**Resultado observado:**
+
+- O sistema negou a autenticação.
+- A mensagem `Invalid credentials` foi apresentada na interface.
+- A tela permaneceu no login, sem redirecionamento para a área administrativa.
+- Não foi possível acessar a área administrativa com as credenciais inválidas.
+
+**Status:** Aprovado.
 ---
 
 ## 6. Rastreabilidade
