@@ -308,14 +308,27 @@ A ocorrência está documentada na investigação INV-002 — Falha no carregame
 - **Prioridade:** P1
 - **Categoria:** Autenticação
 - **Origem:** EXP-009
-- **Pré-condições:** aplicação acessível.
-- **Dados de entrada:** acesso à opção administrativa.
-- **Passos:**
-  1. Acessar a aplicação.
-  2. Localizar a opção de administração.
-  3. Acionar o acesso administrativo.
-- **Resultado esperado:** a tela de autenticação administrativa ou a área correspondente é apresentada.
-- **Status:** Não executado nesta etapa.
+- **Pré-condições:** Aplicação acessível.
+- **Dados de entrada:** Acesso à opção administrativa.
+
+**Passos:**
+1. Acessar a aplicação.
+2. Localizar a opção de administração.
+3. Acionar o acesso administrativo.
+
+**Resultado esperado:**
+
+A tela de autenticação administrativa ou a área correspondente deve ser apresentada corretamente.
+
+**Resultado observado:**
+
+Não foi possível executar o caso de teste devido à falha de carregamento da aplicação, que impede a navegação normal pela interface.
+
+A ocorrência está documentada na investigação INV-002 — Falha no carregamento dos dados dos quartos.
+
+**Status:** Bloqueado — impedido por falha de carregamento da aplicação.
+
+**Próxima ação:** Retomar a execução após a normalização do funcionamento da aplicação.
 
 ### TC-009 — Tentar autenticação com credenciais inválidas
 
