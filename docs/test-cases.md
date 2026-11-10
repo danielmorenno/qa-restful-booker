@@ -245,15 +245,35 @@ A aplicação deve carregar os dados dos quartos normalmente. Caso ocorra uma fa
 - **Prioridade:** P2
 - **Categoria:** Contato
 - **Origem:** EXP-007
-- **Pré-condições:** aplicação acessível.
-- **Dados de entrada:** nenhuma entrada específica.
-- **Passos:**
-  1. Acessar a aplicação.
-  2. Localizar a seção ou formulário de contato.
-  3. Verificar os campos apresentados.
-- **Resultado esperado:** o formulário de contato é exibido e seus campos podem ser identificados.
-- **Status:**
+- **Pré-condições:** Aplicação acessível.
+- **Dados de teste:** Não se aplica.
 
+**Passos:**
+1. Acessar a página inicial da aplicação.
+2. Localizar a seção de contato.
+3. Verificar se o formulário está visível.
+4. Inspecionar os campos disponíveis e suas identificações.
+
+**Resultado esperado:**
+
+O formulário de contato deve estar visível e apresentar seus campos devidamente identificados, permitindo que o usuário visualize e preencha as informações solicitadas.
+
+**Resultado observado:**
+
+Não foi possível acessar e verificar o formulário de contato devido a uma falha no carregamento da aplicação. Durante a tentativa de navegação, a interface permaneceu em carregamento contínuo.
+
+Foi identificada uma resposta HTTP 500 na requisição GET `/api/room/1`, acompanhada de erro de interpretação da resposta no Console do navegador.
+
+A ocorrência foi registrada separadamente na investigação INV-002 — Falha no carregamento dos dados dos quartos.
+
+**Evidências:**
+- Captura do Console mostrando o erro de carregamento.
+- Captura do Network mostrando a resposta HTTP 500.
+- Captura da interface em carregamento contínuo.
+
+**Status:** Bloqueado — impedido por falha de carregamento da aplicação.
+
+**Próxima ação:** Retomar a execução deste caso de teste após a normalização do funcionamento da aplicação.
 
 ### TC-007 — Validar formulário de contato com dados ausentes ou inválidos
 
