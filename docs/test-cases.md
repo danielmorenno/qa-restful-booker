@@ -280,15 +280,28 @@ A ocorrência foi registrada separadamente na investigação INV-002 — Falha n
 - **Prioridade:** P2
 - **Categoria:** Validação de formulário
 - **Origem:** EXP-008
-- **Pré-condições:** formulário de contato aberto.
-- **Dados de entrada:** campos obrigatórios vazios ou valores inválidos adequados aos campos disponíveis.
-- **Passos:**
-  1. Abrir o formulário de contato.
-  2. Deixar vazios os campos obrigatórios ou inserir um valor inválido.
-  3. Tentar enviar o formulário.
-  4. Observar as mensagens e o comportamento da interface.
-- **Resultado esperado:** os campos inválidos são sinalizados e a aplicação informa o que precisa ser corrigido antes do envio.
-- **Status:** Não executado nesta etapa.
+- **Pré-condições:** Formulário de contato acessível.
+- **Dados de entrada:** Campos obrigatórios vazios ou valores inválidos adequados aos campos disponíveis.
+
+**Passos:**
+1. Abrir o formulário de contato.
+2. Deixar vazios os campos obrigatórios ou inserir um valor inválido.
+3. Tentar enviar o formulário.
+4. Observar as mensagens e o comportamento da interface.
+
+**Resultado esperado:**
+
+Os campos inválidos devem ser sinalizados e a aplicação deve informar o que precisa ser corrigido antes do envio.
+
+**Resultado observado:**
+
+Não foi possível executar o caso de teste devido à indisponibilidade da aplicação. A falha de carregamento identificada durante a tentativa de navegação impede o acesso ao formulário de contato.
+
+A ocorrência está documentada na investigação INV-002 — Falha no carregamento dos dados dos quartos.
+
+**Status:** Bloqueado — impedido por falha de carregamento da aplicação.
+
+**Próxima ação:** Retomar a execução após a normalização do funcionamento da aplicação.
 
 ### TC-008 — Acessar a área administrativa
 
